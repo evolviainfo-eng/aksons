@@ -1,0 +1,17 @@
+{
+  "client": {"name": "AK & Sons Bespoke Joinery", "legal_name": "AK & Sons Bespoke Joinery Ltd", "trade": "joinery", "blueprint": "SPLIT-PROOF + INDEX (custom)", "city": "Worksop", "area": "projects in Worksop, Tickhill, Harthill, Harrogate and beyond", "phone": "+44 7837 547890", "email": "ak.sonsbespokejoinery@gmail.com", "address": "Worksop, Nottinghamshire, S80 2EJ", "hours": "", "lang": "en", "domain": "", "country": "UK"},
+  "material": {"photos_dir": "assets/raw", "logo": "assets/logo-full.png", "video": ["img/v/p02-00.mp4"], "captions": "assets/ig_manifest.json", "enhanced": true, "pairs_1to1": 1},
+  "brand": {"wordmark_skeleton": "geometric sans, round O, pointed A, bold caps over light spaced caps", "display_face": "Jost", "text_face": "Albert Sans", "ground": "cool stone from the grey of the wordmark", "accent": "#D7212C red from the mark", "radius": 0, "geometry_move": "the mark is the intro once per session and the brand tile; the red of the hexagon is the only action colour"},
+  "dials": {"VISUAL_DENSITY": 5, "SPACING_GENEROSITY": 7, "TYPE_SCALE_DRAMA": 7, "IMAGE_WEIGHT": 9, "COLOR_RANGE": 2, "LAYOUT_VARIATION": 7, "MOTION_PRESENCE": 3, "CONVERSION_PRESSURE": 6},
+  "copy": {"h1": "Bespoke joinery, designed, made and fitted in Worksop", "title": "AK & Sons Bespoke Joinery | Bespoke joinery in Worksop, Nottinghamshire", "primary_cta": "Get a free quote", "voice": "we / you", "retell": "They showed the CAD drawing of a unit next to the same unit fitted with its lights on, and a hallway you can slide from before to during to after."},
+  "sections": [],
+  "signature": {"module": "dmf (drawn, made, fitted)", "why": "the CAD drawing beside the fitted unit is the proof that one team draws, makes and fits"},
+  "facts": [
+    {"id": "f1", "text": "Over 35 years' experience combined between us", "source": "Facebook intro, Instagram bio"},
+    {"id": "f2", "text": "100% recommended on Facebook, 8 reviews", "source": "facebook.com/AK.SONSbespokejoinery/reviews, 2026-10-07"},
+    {"id": "f3", "text": "Bar built in their workshop", "source": "customer reel C9QDFMrKGX5"}
+  ],
+  "gaps": ["opening hours", "number of jobs", "domain", "vector logo", "FormSubmit activation", "confirm Lindrick and AGE builder names stay off"],
+  "ports": {"dev": 3141},
+  "phone": {"words_budget": 330, "fixed_bar": "callbar", "sections": {"facts": "short", "services": "short", "reviews": "short", "quote": "short"}}
+}

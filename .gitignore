@@ -1,0 +1,10 @@
+_gate/
+_phone/
+_ios/
+_qa/
+.claude/
+fs-server.js
+assets/
+__pycache__/
+_gate.log
+.DS_Store
