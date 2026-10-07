@@ -40,7 +40,6 @@ def nav(solid, current=''):
   <div class="wrap nav__in">
     <a class="brand" href="/"><img class="brand__mark" src="/img/mark.png" width="155" height="176" alt="AK &amp; Sons logo"><img class="brand__word brand__word--light" src="/img/wordmark-light.png" width="464" height="120" alt="AK &amp; Sons Bespoke Joinery, home"><img class="brand__word brand__word--dark" src="/img/wordmark.png" width="464" height="120" alt="AK &amp; Sons Bespoke Joinery, home"></a>
     <nav class="nav__links" aria-label="Main"><a href="/work/"{cur('/work/')}>Work</a><a href="/#how">How we work</a><a href="/#reviews">Reviews</a><a href="/contact/"{cur('/contact/')}>Contact</a></nav>
-    <a class="nav__tel" href="tel:{BIZ['tel']}">{BIZ['phone']}</a>
     <a class="btn btn--accent nav__cta" href="{quote}">Get a free quote</a>
     <button class="nav__menu" type="button" data-menu-open aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
@@ -48,7 +47,7 @@ def nav(solid, current=''):
 <div class="sheet" id="menu" data-menu hidden>
   <div class="sheet__top"><a class="brand" href="/"><img class="brand__mark" src="/img/mark.png" width="155" height="176" alt="AK &amp; Sons logo"><img class="brand__word" src="/img/wordmark-light.png" width="464" height="120" alt="AK &amp; Sons Bespoke Joinery, home"></a><button class="sheet__close" type="button" data-menu-close>Close</button></div>
   <nav class="sheet__links" aria-label="Menu"><a href="/" data-menu-close>Home</a><a href="/work/" data-menu-close>Work</a><a href="/#how" data-menu-close>How we work</a><a href="/#reviews" data-menu-close>Reviews</a><a href="/contact/" data-menu-close>Contact</a></nav>
-  <div class="sheet__foot"><a class="btn btn--accent" href="/contact/" data-menu-close>Get a free quote</a><a href="tel:{BIZ['tel']}">{BIZ['phone']}</a><a href="mailto:{BIZ['email']}">{BIZ['email']}</a></div>
+  <div class="sheet__foot"><a class="btn btn--accent" href="/contact/" data-menu-close>Get a free quote</a><a href="mailto:{BIZ['email']}">{BIZ['email']}</a></div>
 </div>'''
 
 PLACES = 'Worksop, Tickhill, Harthill, Harrogate, Carlton in Lindrick, Mansfield, East Markham, Harworth, Kilton, Sheffield, Leicester, Banbury and Crowborough'
@@ -58,7 +57,7 @@ def footer():
   <div class="wrap">
     <div class="g12 foot__g">
       <div class="foot__brand"><a class="brand" href="/"><img class="brand__mark" src="/img/mark.png" width="155" height="176" alt="AK &amp; Sons logo" loading="lazy"><img class="brand__word" src="/img/wordmark-light.png" width="464" height="120" alt="AK &amp; Sons Bespoke Joinery, home" loading="lazy"></a><p>Joinery designed, made and fitted by AK &amp; Sons in Worksop. All aspects of joinery undertaken.</p></div>
-      <div class="foot__contact"><a class="foot__tel" href="tel:{BIZ['tel']}">{BIZ['phone']}</a><a href="mailto:{BIZ['email']}">{BIZ['email']}</a><p>Based in Worksop, Nottinghamshire, {BIZ['postcode']}</p></div>
+      <div class="foot__contact"><a class="foot__mail" href="mailto:{BIZ['email']}">{BIZ['email']}</a><p>Based in Worksop, Nottinghamshire, {BIZ['postcode']}</p></div>
       <nav class="foot__links" aria-label="Footer"><a href="/work/">Work</a><a href="/#how">How we work</a><a href="/#reviews">Reviews</a><a href="/contact/">Get a free quote</a><a href="{BIZ['facebook']}" rel="noopener" target="_blank">Facebook</a><a href="{BIZ['instagram']}" rel="noopener" target="_blank">Instagram</a></nav>
       <p class="foot__places">Recent projects in {PLACES}.</p>
     </div>
@@ -77,7 +76,7 @@ def page(path, title, desc, body, solid=True, current='', gallery=None, og='/og.
     canon = SITE + path
     ld = {
         '@context': 'https://schema.org', '@type': 'HomeAndConstructionBusiness', 'name': BIZ['name'], 'legalName': BIZ['legal'],
-        'url': SITE + '/', 'telephone': BIZ['tel'], 'email': BIZ['email'], 'image': SITE + '/og.jpg', 'logo': SITE + '/img/logo.png',
+        'url': SITE + '/', 'email': BIZ['email'], 'image': SITE + '/og.jpg', 'logo': SITE + '/img/logo.png',
         'address': {'@type': 'PostalAddress', 'addressLocality': 'Worksop', 'addressRegion': 'Nottinghamshire', 'postalCode': BIZ['postcode'], 'addressCountry': 'GB'},
         'sameAs': [BIZ['facebook'], BIZ['instagram']],
     }
@@ -107,7 +106,7 @@ def page(path, title, desc, body, solid=True, current='', gallery=None, og='/og.
 </main>
 {footer()}
 <a class="qtab" href="{quote_href}" data-qtab>Get a free quote</a>
-<div class="callbar" data-callbar><a class="btn btn--phone" href="tel:{BIZ['tel']}">Call us</a><a class="btn btn--accent" href="{quote_href}">Get a free quote</a></div>
+<div class="actbar" data-actbar><a class="btn" href="mailto:{BIZ['email']}">Email us</a><a class="btn btn--accent" href="{quote_href}">Get a free quote</a></div>
 {LB}
 {g}<script src="/js/lenis.min.js" defer></script>
 <script src="/js/site.js" defer></script>
@@ -144,9 +143,9 @@ def quote_section(head_tag='h2', title='Tell us about the job'):
   <div class="wrap g12 quote__g">
     <div class="quote__side">
       <{head_tag} class="t-display rv" id="quote-h">{title}</{head_tag}>
-      <p class="t-lead rv">Send a few lines and, if you have one, a photo of the space. We will be glad to answer your questions and arrange a free, no-obligation quote.</p>
-      <a class="quote__tel rv" href="tel:{BIZ['tel']}">{BIZ['phone']}</a>
-      <div class="quote__lines rv"><a href="mailto:{BIZ['email']}">{BIZ['email']}</a><span>Based in Worksop, Nottinghamshire, {BIZ['postcode']}</span></div>
+      <p class="t-lead rv">Send a few lines and, if you have one, a photo of the space. We will reply by email, answer your questions and arrange a free, no-obligation quote.</p>
+      <a class="quote__mail rv" href="mailto:{BIZ['email']}">{BIZ['email']}</a>
+      <div class="quote__lines rv"><span>Based in Worksop, Nottinghamshire, {BIZ['postcode']}</span></div>
       <figure class="quote__ph"><div class="ph">{photo}</div><figcaption class="t-caption">One of our team fitting the understairs doors &middot; Worksop</figcaption></figure>
     </div>
     <form class="form" action="https://formsubmit.co/{BIZ['email']}" method="POST" enctype="multipart/form-data" data-form novalidate>
@@ -156,12 +155,11 @@ def quote_section(head_tag='h2', title='Tell us about the job'):
       <input type="hidden" name="_next" value="{SITE}/thanks/" data-next>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="msg" aria-live="polite"></span></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="msg" aria-live="polite"></span></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="msg" aria-live="polite"></span></div>
       <div class="field field--full"><label for="f-type">Type of work</label><select id="f-type" name="type_of_work">{opts}</select></div>
       <div class="field field--full"><label for="f-msg">Tell us about the job</label><textarea id="f-msg" name="message" rows="4" placeholder="e.g. built-in shelving either side of the chimney breast, about 2.4 m high" required></textarea><span class="msg" aria-live="polite"></span></div>
-      <details class="form__fold" open data-fold><summary>Add email, location and a photo</summary><div class="form__more">
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"><span class="msg" aria-live="polite"></span></div>
-        <div class="field"><label for="f-town">Town or postcode</label><input id="f-town" name="location" type="text" autocomplete="postal-code"></div>
+      <details class="form__fold" open data-fold><summary>Add your location and a photo</summary><div class="form__more">
+        <div class="field field--full"><label for="f-town">Town or postcode</label><input id="f-town" name="location" type="text" autocomplete="postal-code"></div>
         <div class="field field--full"><label for="f-file">Photo of the space (optional)</label><input id="f-file" name="attachment" type="file" accept="image/jpeg,image/png,image/heic,image/webp"><span class="hint">One photo, JPG or PNG, up to 5 MB. More can follow by email.</span><span class="msg" aria-live="polite"></span></div>
       </div></details>
       <p class="form__note">We only use these details to reply to your enquiry. See our <a href="/privacy/">privacy notice</a>.</p>
@@ -182,7 +180,7 @@ def home():
     <h1 class="t-display rv" id="h1">Bespoke joinery, designed, made and fitted in Worksop</h1>
     <div class="hero__aside rv" style="--delay: 120ms">
       <p class="hero__lead m-hide">One team from the CAD drawing to the last fitting, for homes and local builders. Recent work in Tickhill, Harthill and Harrogate.</p>
-      <div class="hero__act"><a class="btn btn--accent" href="#quote">Get a free quote</a><a class="hero__tel m-hide" href="tel:{BIZ['tel']}">or call {BIZ['phone']}</a></div>
+      <div class="hero__act"><a class="btn btn--accent" href="#quote">Get a free quote</a><a class="hero__mail m-hide" href="mailto:{BIZ['email']}">or email us</a></div>
       <p class="hero__cap m-hide">Built-in display and storage unit &middot; Harrogate</p>
     </div>
   </div>
@@ -341,7 +339,7 @@ def project(p, nxt):
       <div><dt class="t-label">Type</dt><dd>{E(cats)}</dd></div>
     </dl>
     <div class="pj-text">{text}<a class="link link--arrow rv" href="https://www.instagram.com/p/{p['ig']}/" rel="noopener" target="_blank">See the post on Instagram</a></div>
-    <aside class="pj-aside rv" aria-labelledby="cta-h"><h2 class="t-h3" id="cta-h">Planning something similar?</h2><p class="t-small">Tell us about the job and we will arrange a free, no-obligation quote.</p><a class="btn btn--accent" href="/contact/">Get a free quote</a><a class="link" href="tel:{BIZ['tel']}">{BIZ['phone']}</a></aside>
+    <aside class="pj-aside rv" aria-labelledby="cta-h"><h2 class="t-h3" id="cta-h">Planning something similar?</h2><p class="t-small">Tell us about the job and we will arrange a free, no-obligation quote.</p><a class="btn btn--accent" href="/contact/">Get a free quote</a><a class="link" href="mailto:{BIZ['email']}">Email us</a></aside>
   </div>
 </section>
 {extra}
@@ -357,7 +355,7 @@ def contact():
 </section>
 {quote_section('h1', 'Get a free quote')}'''
     return page('/contact/', 'Get a free joinery quote | AK & Sons Bespoke Joinery, Worksop',
-                'Ask AK & Sons for a free, no-obligation joinery quote. Call +44 7837 547890 or send the details and a photo of the space. Based in Worksop, Nottinghamshire.',
+                'Ask AK & Sons for a free, no-obligation joinery quote. Send the details and a photo of the space, or email ak.sonsbespokejoinery@gmail.com. Based in Worksop, Nottinghamshire.',
                 body, current='/contact/', quote_href='#quote')
 
 def prose_page(path, title, h1, desc, inner):
@@ -365,16 +363,16 @@ def prose_page(path, title, h1, desc, inner):
 <section class="sec" style="--sec-top: 0"><div class="wrap"><div class="prose">{inner}</div></div></section>'''
     return page(path, title, desc, body)
 
-PRIVACY = f'''<p>This notice explains what happens to the details you send through this website. It is written by AK &amp; Sons Bespoke Joinery Ltd, Unit 4 Rear Of 38 Church Walk, Worksop, Nottinghamshire, S80 2EJ (Company No. {BIZ['company_no']}). Questions about it: <a href="mailto:{BIZ['email']}">{BIZ['email']}</a> or {BIZ['phone']}.</p>
-<h2>What we collect</h2><p>Only what you type into the enquiry form: your name, phone number, email address, town or postcode, the type of work, your message and any photo you attach.</p>
+PRIVACY = f'''<p>This notice explains what happens to the details you send through this website. It is written by AK &amp; Sons Bespoke Joinery Ltd, Unit 4 Rear Of 38 Church Walk, Worksop, Nottinghamshire, S80 2EJ (Company No. {BIZ['company_no']}). Questions about it: <a href="mailto:{BIZ['email']}">{BIZ['email']}</a>.</p>
+<h2>What we collect</h2><p>Only what you type into the enquiry form: your name, email address, town or postcode, the type of work, your message and any photo you attach.</p>
 <h2>Why we use it</h2><p>To reply to your enquiry, arrange a visit and prepare a quote. Our lawful basis is that you asked us to, before entering into a contract (UK GDPR Article 6(1)(b)). We do not use it for marketing and we do not sell or share it.</p>
 <h2>How it reaches us</h2><p>The form is delivered to our email inbox by FormSubmit (formsubmit.co), a form delivery service. Your message passes through their servers on the way to us.</p>
 <h2>How long we keep it</h2><p>For as long as we need it to deal with your enquiry and, if we do the work, for our business records. If we do not go ahead, we delete it once the enquiry is closed.</p>
 <h2>Cookies</h2><p>This website sets no cookies and uses no analytics or tracking.</p>
 <h2>Your rights</h2><p>You can ask to see, correct or delete the details we hold about you by emailing us. If you are unhappy with how we handle them, you can complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk" rel="noopener">ico.org.uk</a>.</p>'''
 
-THANKS = f'''<p>Thank you. Your enquiry is on its way to us and we will be in touch.</p><p>If it is urgent, call <a href="tel:{BIZ['tel']}">{BIZ['phone']}</a>.</p><p><a href="/work/">Look through our work</a> &middot; <a href="/">Back to the home page</a></p>'''
-NOTFOUND = f'''<p>The page you were looking for is not here. It may have moved.</p><p><a href="/">Home</a> &middot; <a href="/work/">Our work</a> &middot; <a href="/contact/">Get a free quote</a> &middot; <a href="tel:{BIZ['tel']}">{BIZ['phone']}</a></p>'''
+THANKS = f'''<p>Thank you. Your enquiry is on its way to us and we will be in touch.</p><p>If you need to add anything, email <a href="mailto:{BIZ['email']}">{BIZ['email']}</a>.</p><p><a href="/work/">Look through our work</a> &middot; <a href="/">Back to the home page</a></p>'''
+NOTFOUND = f'''<p>The page you were looking for is not here. It may have moved.</p><p><a href="/">Home</a> &middot; <a href="/work/">Our work</a> &middot; <a href="/contact/">Get a free quote</a> &middot; <a href="mailto:{BIZ['email']}">Email us</a></p>'''
 
 # ------------------------------------------------------------------ build
 def write(path, s):

@@ -149,7 +149,7 @@
   lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); sx = null; });
 })();
 
-/* AK & Sons · site behaviour: before/during/after slider, work filter, photo rail, quote tab and call bar, form. */
+/* AK & Sons · site behaviour: before/during/after slider, work filter, photo rail, quote tab and action bar, form. */
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -204,8 +204,8 @@
     n && n.addEventListener('click', function () { step(1); });
   }
 
-  /* ---- quote tab (desktop) and call bar (phone): after the first screen, gone at the form ---- */
-  var qtab = document.querySelector('[data-qtab]'), bar = document.querySelector('[data-callbar]');
+  /* ---- quote tab (desktop) and action bar (phone): after the first screen, gone at the form ---- */
+  var qtab = document.querySelector('[data-qtab]'), bar = document.querySelector('[data-actbar]');
   var hero = document.querySelector('[data-hero]'), quote = document.querySelector('[data-quote]');
   var pastHero = !hero, atQuote = false;
   var paint = function () {
@@ -230,8 +230,7 @@
     var msg = function (el, t) { var fd = el.closest('.field'); if (!fd) return; fd.setAttribute('data-state', t ? 'error' : ''); var m = fd.querySelector('.msg'); if (m) m.textContent = t || ''; };
     var check = function (el) {
       var v = (el.value || '').trim(), t = '';
-      if (el.required && !v) t = el.name === 'name' ? 'Please add your name.' : el.name === 'phone' ? 'Please add a phone number so we can call you back.' : 'A few words about the job, please.';
-      else if (el.name === 'phone' && v && v.replace(/\D/g, '').length < 10) t = 'That number looks short. Please check it.';
+      if (el.required && !v) t = el.name === 'name' ? 'Please add your name.' : el.name === 'email' ? 'Please add your email address so we can reply.' : 'A few words about the job, please.';
       else if (el.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) t = 'Please check the email address.';
       else if (el.type === 'file' && el.files && el.files[0] && el.files[0].size > 5 * 1024 * 1024) t = 'That photo is over 5 MB. Please pick a smaller one or email it to us.';
       msg(el, t); return !t;

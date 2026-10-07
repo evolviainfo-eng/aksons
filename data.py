@@ -7,8 +7,6 @@ SITE = 'https://aksonsbespokejoinery.co.uk'   # assumed; domain not chosen yet (
 BIZ = {
     'name': 'AK & Sons Bespoke Joinery',
     'legal': 'AK & Sons Bespoke Joinery Ltd',
-    'phone': '+44 7837 547890',
-    'tel': '+447837547890',
     'email': 'ak.sonsbespokejoinery@gmail.com',
     'town': 'Worksop',
     'county': 'Nottinghamshire',
